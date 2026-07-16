@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pili's Broadway Night</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Archivo de estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- CONTROL DE AUDIO -->
+    <button id="music-toggle" class="floating-btn" aria-label="Toggle Music">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- AUDIOS (Espacios preparados para tus archivos MP3) -->
+    <!-- Reemplaza el src con tus archivos locales o URLs -->
+    <audio id="bg-music" loop>
+        <source src="tu-cancion-broadway.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="theater-bell">
+        <source src="campana-teatro.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- PANTALLA DE APERTURA (Intro) -->
+    <div id="intro-screen">
+        <div class="theater-lights"></div>
+        <div class="intro-content">
+            <p class="intro-text" id="intro-text-1">Damas y caballeros...</p>
+            <p class="intro-text" id="intro-text-2">La función está por comenzar.</p>
+            <p class="intro-text" id="intro-text-3">Presentando una única función...</p>
+            <div class="intro-title-container" id="intro-title-container">
+                <h1 class="broadway-title">✨ PILI'S BROADWAY NIGHT ✨</h1>
+                <h2 class="broadway-subtitle">One Night Only</h2>
+                <div class="intro-date">
+                    <p>📅 29 de agosto &nbsp;|&nbsp; 🕒 3:00 PM</p>
+                </div>
+                <button id="btn-open-curtains" class="gold-btn">🎟 Presentar mi boleto</button>
+            </div>
+        </div>
+        <!-- Cortinas Rojas -->
+        <div class="curtain curtain-left"></div>
+        <div class="curtain curtain-right"></div>
+    </div>
+
+    <!-- CONTENEDOR DE EASTER EGGS -->
+    <div id="easter-eggs-container"></div>
+
+    <!-- CONTENIDO PRINCIPAL (El Playbill) -->
+    <main id="playbill-wrapper" class="hidden">
+        
+        <!-- Header del Playbill -->
+        <header class="playbill-header">
+            <div class="playbill-stripes">
+                <span></span><span></span><span></span>
+            </div>
+            <h2>PLAYBILL</h2>
+            <h3>Pili's Theater</h3>
+        </header>
+
+        <!-- ACTO I: Bienvenidos -->
+        <section id="acto-1" class="act-section theme-mamma-mia">
+            <h2 class="act-title">ACTO I</h2>
+            <h3 class="act-subtitle">Bienvenidos al Teatro</h3>
+            <div class="paper-card">
+                <p>Gracias por aceptar esta invitación.</p>
+                <p>Esta noche el escenario se llena de canciones, risas y musicales.</p>
+                <p>Prepárate para cantar, disfrutar y crear recuerdos inolvidables.</p>
+                
+                <div class="countdown-container">
+                    <h4>El telón se levanta en:</h4>
+                    <div id="countdown" class="countdown">
+                        <div class="time-box"><span id="cd-days">00</span><small>Días</small></div>
+                        <div class="time-box"><span id="cd-hours">00</span><small>Hrs</small></div>
+                        <div class="time-box"><span id="cd-mins">00</span><small>Min</small></div>
+                        <div class="time-box"><span id="cd-secs">00</span><small>Seg</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="art-deco-divider">
+
+        <!-- ACTO II: El Programa -->
+        <section id="acto-2" class="act-section theme-hamilton">
+            <h2 class="act-title">ACTO II</h2>
+            <h3 class="act-subtitle">El Programa</h3>
+            <div class="paper-card gold-border">
+                <ul class="program-info">
+                    <li><i class="fas fa-calendar-alt"></i> <strong>Fecha:</strong> 29 de agosto</li>
+                    <li><i class="fas fa-clock"></i> <strong>Hora:</strong> 3:00 PM</li>
+                    <li><i class="fas fa-hourglass-half"></i> <strong>Duración:</strong> Hasta que el último número musical termine.</li>
+                </ul>
+                <div class="about-show">
+                    <h4>Sobre la función</h4>
+                    <p>Prepárate para una tarde llena de canciones, karaoke, risas y musicales. Ven listo para interpretar tus canciones favoritas como si estuvieras sobre un escenario de Broadway.</p>
+                    <div class="decorative-icons">
+                        <span>🎤</span><span>⭐</span><span>🎭</span><span>🎟</span><span>💡</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERMEDIO: Dress Code -->
+        <section id="intermedio" class="act-section theme-wicked">
+            <div class="director-note">
+                <h3 class="act-subtitle"><i class="fas fa-star"></i> Intermedio: Nota del Director <i class="fas fa-star"></i></h3>
+                <h4 class="dress-code-title">Dress Code</h4>
+                <p>Ven inspirado en tu musical favorito, un personaje, un color representativo o simplemente con un look digno de una noche en Broadway.</p>
+                <p class="small-note">"Únicamente Elphaba ya forma parte del elenco."</p>
+            </div>
+        </section>
+
+        <!-- ACTO III: Casting -->
+        <section id="acto-3" class="act-section theme-mentiras">
+            <h2 class="act-title">ACTO III</h2>
+            <h3 class="act-subtitle">Casting para el Karaoke</h3>
+            <div class="paper-card neon-border form-container">
+                <form id="casting-form">
+                    <div class="input-group">
+                        <label for="cast-name">Nombre</label>
+                        <input type="text" id="cast-name" required placeholder="Tu nombre artístico">
+                    </div>
+                    <div class="input-group">
+                        <label for="cast-song">Canción favorita</label>
+                        <input type="text" id="cast-song" required placeholder="Ej. Defying Gravity">
+                    </div>
+                    <div class="input-group">
+                        <label for="cast-musical">Musical al que pertenece</label>
+                        <input type="text" id="cast-musical" required placeholder="Ej. Wicked">
+                    </div>
+                    <div class="input-group">
+                        <label for="cast-artist">Artista (opcional)</label>
+                        <input type="text" id="cast-artist" placeholder="Ej. Idina Menzel">
+                    </div>
+                    <button type="submit" class="neon-btn">⭐ Reservar mi número musical</button>
+                </form>
+                <div id="casting-stamp" class="stamp hidden">🎭 CAST CONFIRMED</div>
+                <p id="casting-success" class="success-msg hidden">¡Tu canción quedó reservada para el gran show!</p>
+            </div>
+        </section>
+
+        <hr class="art-deco-divider">
+
+        <!-- ACTO IV: Confirmación -->
+        <section id="acto-4" class="act-section">
+            <h2 class="act-title">ACTO IV</h2>
+            <h3 class="act-subtitle">Confirmación de Asistencia</h3>
+            <div class="paper-card form-container">
+                <form id="rsvp-form">
+                    <div class="input-group">
+                        <label for="rsvp-name">Nombre</label>
+                        <input type="text" id="rsvp-name" required placeholder="¿Quién asiste?">
+                    </div>
+                    <div class="input-group">
+                        <label for="rsvp-attending">¿Asistirás?</label>
+                        <select id="rsvp-attending" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="yes">¡Por supuesto, ahí estaré!</option>
+                            <option value="no">Me rompe el corazón, pero no podré.</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="rsvp-guests">Número de acompañantes</label>
+                        <input type="number" id="rsvp-guests" min="0" value="0" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="rsvp-comments">Comentarios (Opcional)</label>
+                        <textarea id="rsvp-comments" rows="3" placeholder="¿Alguna alergia o mensaje para la directora?"></textarea>
+                    </div>
+                    <button type="submit" class="gold-btn">🎟 Enviar RSVP</button>
+                </form>
+                <p id="rsvp-success" class="success-msg hidden">¡Gracias por confirmar tu asistencia!</p>
+            </div>
+        </section>
+
+        <!-- ACTO V: Wishlist y Ubicación -->
+        <section id="acto-5" class="act-section">
+            <h2 class="act-title">ACTO V</h2>
+            
+            <div class="paper-card director-card">
+                <h3 class="act-subtitle">Una nota del Director</h3>
+                <p>Tu compañía es el mejor regalo que podría recibir. Pero si deseas colaborar un poquito más con esta producción, aquí puedes encontrar algunas ideas.</p>
+                <a href="https://www.amazon.com.mx/hz/wishlist/ls/1XNCL65DBZTS6?ref_=wl_share" target="_blank" class="gold-btn">🎁 Ver Wishlist</a>
+            </div>
+
+            <div class="paper-card location-card mt-4">
+                <h3 class="act-subtitle">El Teatro (Ubicación)</h3>
+                <a href="https://maps.app.goo.gl/cATXsxjywo5NxQWw6" target="_blank" class="gold-btn location-btn">📍 Ver ubicación</a>
+            </div>
+        </section>
+
+        <!-- ÚLTIMA PÁGINA (Elenco) -->
+        <section id="credits" class="act-section back-cover">
+            <h2 class="act-title">ELENCO</h2>
+            <div class="credits-list">
+                <p><strong>⭐ Protagonista</strong><br>Pili</p>
+                <p><strong>Dirección</strong><br>Todos ustedes ❤️</p>
+                <p><strong>Producción</strong><br>Mucho café.<br>Muchos libros.<br>Muchos musicales.<br>Demasiadas referencias teatrales.</p>
+            </div>
+            <div class="agradecimientos">
+                <p>Gracias por formar parte del elenco de este cumpleaños.</p>
+                <p>Nos vemos cuando se levante el telón.</p>
+            </div>
+            
+            <!-- Elemento ancla para disparar el final -->
+            <div id="end-trigger"></div>
+        </section>
+
+    </main>
+
+    <!-- PANTALLA DE CIERRE (Outro) -->
+    <div id="outro-screen" class="hidden">
+        <div class="outro-content">
+            <h1 class="broadway-title">🎭 Fin de la función</h1>
+            <p class="broadway-subtitle">See you at the stage.</p>
+        </div>
+        <!-- Cortinas Rojas de cierre -->
+        <div class="curtain curtain-left closing-left"></div>
+        <div class="curtain curtain-right closing-right"></div>
+        <div id="confetti-container"></div>
+    </div>
+
+    <!-- Archivo JS -->
+    <script src="script.js"></script>
+</body>
+</html>
